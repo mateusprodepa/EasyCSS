@@ -1,0 +1,194 @@
+/* ######################################## Project Defaults ######################################## */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ######################################## Imports ######################################## */
+
+@import url('https://fonts.googleapis.com/css?family=Changa+One');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+/* ######################################## Variables ######################################## */
+:root {
+  /* Flat colors */
+  --red: #f74d4d;
+  --info: #3498db;
+  --danger: #b73030;
+  --success: #2ecc71;
+  --white: #f5f5f5;
+  --dark: #1e2328;
+
+  /* Depth Colors */
+  --dark-green: #214d4d;
+  --dark-blue: #0F336F;
+
+  /* Theme Fonts */
+  --montserrat: Montserrat;
+  --lato: Lato;
+  --changa-one: Changa One;
+}
+
+/* ######################################## Flexbox ######################################## */
+
+.flex {
+  display: flex;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.justifyBoth {
+  align-items: center;
+  justify-content: center;
+}
+
+.flexRow {
+  flex-direction: row;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.defaultFlex {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+/* ######################################## Background Choices ######################################## */
+
+.bgRed {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+/* ######################################## Menu Link animation ######################################## */
+
+.animMenuBottom {
+  position: relative;
+  overflow: hidden;
+}
+
+.animMenuBottom::before,
+.animMenuBottom::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  background-color: var(--white);
+  will-change: width;
+  transition: width .05s ease-out;
+  position: absolute;
+  bottom: 0;
+}
+
+.animMenuBottom::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.animMenuBottom::after {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.animMenuBottom:hover::before,
+.animMenuBottom:hover::after {
+  width: 100%;
+  transition-duration: .15s;
+}
+
+/* ######################################## Grid Settings ######################################## */
+
+.defaultGrid {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.centeredGrid {
+  display: grid;
+  grid-template-rows: .5fr repeat(2, 1fr) .5fr;
+  grid-gap: 10px;
+}
+
+/* ######################################## Navbar settings ######################################## */
+
+.navbar {
+  width: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul {
+  padding: 16px;
+  margin: 0;
+}
+
+.navbar--red ul {
+  background-color: var(--red);
+}
+
+.navbar--green ul {
+  background-color: var(--success);
+}
+
+.navbar--blue ul {
+  background-color: var(--info);
+}
+
+.navbar--dark ul {
+  background-color: var(--dark);
+}
+
+.navbar--darkGreen ul {
+  background-color: var(--dark-green);
+}
+
+.navbar--darkBlue ul {
+  background-color: var(--dark-blue);
+}
+
+/* ######################################## Unique Headers ######################################## */
+
+.uniqueHeader {
+  font-family: var(--changa-one);
+  font-size: 5em;
+  text-align: center;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.uniqueHeader--blue {
+  color: var(--info);
+}
+
+.uniqueHeader--green {
+  color: var(--success);
+}
+
+.uniqueHeader--red {
+  color: var(--red);
+}
+
+@media screen and (max-width: 768px) {
+  .uniqueHeader {
+    font-size: 4em;
+    font-weight: 400;
+  }
+}
