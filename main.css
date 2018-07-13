@@ -30,9 +30,9 @@ html, body {
   --dark-blue: #0F336F;
 
   /* Theme Fonts */
-  --montserrat: Montserrat;
-  --lato: Lato;
-  --changa-one: Changa One;
+  --montserrat: 'Montserrat', Helvetica, sans-serif, Georgia;
+  --lato: 'Lato', Helvetica, sans-serif, Georgia;
+  --changa-one: 'Changa One', Helvetica, sans-serif, Georgia;
 }
 
 /* ######################################## Flexbox ######################################## */
@@ -77,6 +77,36 @@ html, body {
   color: var(--white);
 }
 
+.bgBlue {
+  background-color: var(--info);
+  color: var(--white);
+}
+
+.bgGreen {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.bgDarkGreen {
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+
+.bgDarkBlue {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.bgDanger {
+  background-color: var(--danger);
+  color: var(--white);
+}
+
+.bgWhite {
+  background-color: var(--white);
+  color: var(--dark);
+}
+
 /* ######################################## Menu Link animation ######################################## */
 
 .animMenuBottom {
@@ -116,14 +146,30 @@ html, body {
 
 .defaultGrid {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
 
 .centeredGrid {
+  width: 100%;
   display: grid;
-  grid-template-rows: .5fr repeat(2, 1fr) .5fr;
+  grid-template-columns: .5fr repeat(2, 1fr) .5fr;
   grid-gap: 10px;
+  grid-template-areas:
+        ". first second .";
+  height: 100%;
+}
+
+.centeredGrid > *:first-child {
+  grid-area: first;
+  align-self: center;
+  justify-self: center;
+}
+
+.centeredGrid > *:last-child {
+  grid-area: second;
+  align-self: center;
+  justify-self: center;
 }
 
 /* ######################################## Navbar settings ######################################## */
@@ -156,6 +202,10 @@ html, body {
   background-color: var(--dark);
 }
 
+.navbar--danger ul {
+  background-color: var(--danger);
+}
+
 .navbar--darkGreen ul {
   background-color: var(--dark-green);
 }
@@ -167,10 +217,11 @@ html, body {
 /* ######################################## Unique Headers ######################################## */
 
 .uniqueHeader {
-  font-family: var(--changa-one);
+  font-family: var(--lato);
   font-size: 5em;
   text-align: center;
-  font-weight: 700;
+  font-weight: 400;
+  margin-bottom: 0;
   color: var(--dark);
 }
 
@@ -186,9 +237,171 @@ html, body {
   color: var(--red);
 }
 
+.uniqueHeader--white {
+  color: var(--white);
+  font-weight: 700;
+}
+
 @media screen and (max-width: 768px) {
   .uniqueHeader {
     font-size: 4em;
     font-weight: 400;
+  }
+}
+
+/* ######################################## Headers and Subtitles ######################################## */
+/* Header */
+.header {
+  font-size: 2em;
+  font-weight: 700;
+  display: block;
+  color: var(--dark);
+  padding: 0 0 0 8px;
+  margin: 4px;
+}
+
+.header--ms {
+  font-family: var(--montserrat);
+}
+
+.header--lt {
+  font-family: var(--lato);
+}
+
+.header--co {
+  font-family: var(--changa-one);
+}
+
+.header--blue {
+  color: var(--info);
+}
+
+.header--green {
+  color: var(--success);
+}
+
+.header--red {
+  color: var(--red);
+}
+
+.header--darkGreen {
+  color: var(--dark-green);
+}
+
+.header--darkBlue {
+  color: var(--dark-blue);
+}
+
+.header--danger {
+  color: var(--danger);
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    /* font-size: 1.5em; */
+  }
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 2em;
+  font-weight: 400;
+  text-align: center;
+  display: block;
+  margin-bottom: 12px;
+  color: var(--dark);
+}
+
+.subtitle--ms {
+  font-family: var(--montserrat);
+}
+
+.subtitle--lt {
+  font-family: var(--lato);
+}
+
+.subtitle--co {
+  font-family: var(--changa-one);
+}
+
+.subtitle--blue {
+  color: var(--info);
+}
+
+.subtitle--green {
+  color: var(--success);
+}
+
+.subtitle--red {
+  color: var(--red);
+}
+
+.subtitle--darkGreen {
+  color: var(--dark-green);
+}
+
+.subtitle--darkBlue {
+  color: var(--dark-blue);
+}
+
+.subtitle--danger {
+  color: var(--danger);
+}
+
+@media screen and (max-width: 768px) {
+  .subtitle {
+    font-size: 1.5em;
+  }
+}
+
+/* ######################################## Text ######################################## */
+
+.text {
+  font-size: 1em;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  color: var(--dark);
+}
+
+.text--ms {
+  font-family: var(--montserrat);
+}
+
+.text--lt {
+  font-family: var(--lato);
+}
+
+.text--co {
+  font-family: var(--changa-one);
+}
+
+.text--blue {
+  color: var(--info);
+}
+
+.text--green {
+  color: var(--success);
+}
+
+.text--red {
+  color: var(--red);
+}
+
+.text--darkGreen {
+  color: var(--dark-green);
+}
+
+.text--darkBlue {
+  color: var(--dark-blue);
+}
+
+.text--danger {
+  color: var(--danger);
+}
+
+@media screen and (max-width: 768px) {
+  .text {
+    font-size: 0.9rem;
   }
 }
